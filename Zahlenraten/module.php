@@ -49,34 +49,34 @@ class Zahlenraten extends IPSModule {
 		
 		switch ($Ident) {
 			case "DeinTipp":
-				SetValue(IPS_GetObjectIDByIdent($Ident, $Parent), $Value);
-				$Tipp = GetValue(IPS_GetObjectIDByIdent("DeinTipp", $Parent));
-				$DieZahl = GetValue(IPS_GetObjectIDByIdent("DieZahl", $Parent));
+				SetValue($this->GetIDForIdent($Ident), $Value);
+				$Tipp = GetValue($this->GetIDForIdent("DeinTipp"));
+				$DieZahl = GetValue($this->GetIDForIdent("DieZahl"));
 
-				$Verbleibend = GetValue(IPS_GetObjectIDByIdent("ZuegeUebrig", $Parent));
+				$Verbleibend = GetValue($this->GetIDForIdent("ZuegeUebrig"));
 
 				if ($Verbleibend >= 1) {
 					if ($Tipp > $DieZahl) {
-						SetValue(IPS_GetObjectIDByIdent("DeineZahl", $Parent), 0);
+						SetValue($this->GetIDForIdent("DeineZahl"), 0);
 						$Verbleibend--;
 					} elseif($Tipp < $DieZahl) {
-						SetValue(IPS_GetObjectIDByIdent("DeineZahl", $Parent), 1);
+						SetValue($this->GetIDForIdent("DeineZahl"), 1);
 						$Verbleibend--;
 					} elseif($Tipp = $DieZahl) {
-						SetValue(IPS_GetObjectIDByIdent("DeineZahl", $Parent), 2);
+						SetValue($this->GetIDForIdent("DeineZahl"), 2);
 						echo "Gewonnen!";
-						IPS_SetDisabled(IPS_GetObjectIDByIdent("DeinTipp", $Parent), true);
+						IPS_SetDisabled($this->GetIDForIdent("DeinTipp"), true);
 					}
 				}
 
 				if($Verbleibend == 0) {
 					echo "Verloren!" . "\n\nDie Zahl war: " . $DieZahl ;
-					SetValue(IPS_GetObjectIDByIdent("ZuegeUebrig", $Parent), 0);
-					IPS_SetDisabled(IPS_GetObjectIDByIdent("DeinTipp", $Parent), true);
+					SetValue($this->GetIDForIdent("ZuegeUebrig"), 0);
+					IPS_SetDisabled($this->GetIDForIdent("DeinTipp"), true);
 				}
 
 		
-					SetValue(IPS_GetObjectIDByIdent("ZuegeUebrig", $Parent), $Verbleibend);
+					SetValue($this->GetIDForIdent("ZuegeUebrig"), $Verbleibend);
 		}
 	}  	
 
