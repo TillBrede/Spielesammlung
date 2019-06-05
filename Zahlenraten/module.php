@@ -7,6 +7,42 @@ class Zahlenraten extends IPSModule {
         
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
+		If(!IPS_VariableProfileExists("DieZahl")) {
+			IPS_CreateVariableProfile("DieZahl", 1);
+			IPS_SetVariableProfileValues("DieZahl", 0, 100, 1);
+		} else {
+		}
+		If(!IPS_VariableProfileExists("Zuege")) {
+			IPS_CreateVariableProfile("Zuege", 1);
+			IPS_SetVariableProfileValues("Zuege", 0, 5, 1);
+		}else{
+		}
+		If(!IPS_VariableProfileExists("GkG")) {
+			IPS_CreateVariableProfile("GkG", 1);
+			IPS_SetVariableProfileAssociation("GkG", 0, "kleiner", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("GkG", 1, "größer", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("GkG", 2, "gleich", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("GkG", 3, "", "Transparent", -1 );
+			IPS_SetVariableProfileValues("GkG", 0, 2, 1);
+		}else{
+		}
+		If(!IPS_VariableProfileExists("DeinTipp")) {
+			IPS_CreateVariableProfile("DeinTipp", 1);
+			IPS_SetVariableProfileAssociation("DeinTipp", 0, "0", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 1, "1", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 2, "2", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 3, "3", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 4, "4", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 5, "5", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 6, "6", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 7, "7", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 8, "8", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 9, "9", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("DeinTipp", 10, "10", "Transparent", -1 );
+			IPS_SetVariableProfileValues("DeinTipp", 0, 10, 0);
+		}else{
+		}
+		
         $this->RegisterVariableInteger("DieZahl", "DieZahl", "DieZahl", 0);
 		$this->RegisterVariableInteger("ZuegeUebrig", "ZügeÜbrig", "Zuege", 1);
 		$this->RegisterVariableInteger("DeineZahl", "Deines Zahl ist", "GkG", 2);
