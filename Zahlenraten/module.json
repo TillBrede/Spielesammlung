@@ -1,0 +1,13 @@
+{
+    "id": "{CCFBF053-0FC7-B19A-A507-B63B87454D37}",
+    "name": "Zahlenraten",
+    "type": 3,
+    "vendor": "",
+    "aliases": 
+    [
+    ],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "ZR"
+}
