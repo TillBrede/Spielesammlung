@@ -7,10 +7,7 @@ class Zahlenraten extends IPSModule {
         
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-		if(!IPS_VariableProfileExists("DieZahl")) {
-			IPS_CreateVariableProfile("DieZahl", 1);
-			IPS_SetVariableProfileValues("DieZahl", 0, 100, 1);
-		}
+		
 		if(!IPS_VariableProfileExists("Zuege")) {
 			IPS_CreateVariableProfile("Zuege", 1);
 			IPS_SetVariableProfileValues("Zuege", 0, 5, 1);
@@ -39,7 +36,7 @@ class Zahlenraten extends IPSModule {
 			IPS_SetVariableProfileValues("DeinTipp", 0, 10, 0);
 		}
 		
-        $this->RegisterVariableInteger("DieZahl", "DieZahl", "DieZahl", 0);
+        $this->RegisterAttributeInteger("GeheimeZahl", 0);
 		$this->RegisterVariableInteger("ZuegeUebrig", "ZügeÜbrig", "Zuege", 1);
 		$this->RegisterVariableInteger("DeineZahl", "Deines Zahl ist", "GkG", 2);
 		$this->RegisterVariableInteger("DeinTipp", "DeinTipp", "DeinTipp", 3);
@@ -68,7 +65,7 @@ class Zahlenraten extends IPSModule {
 		$DieZahl = mt_rand(0, 10); 
 		IPS_SetDisabled(IPS_GetObjectIDByIdent("DeinTipp", $Parent), false);
 
-		SetValue(IPS_GetObjectIDByIdent("DieZahl", $Parent), $DieZahl);
+		$this->WriteAttributeInteger("GeheimeZahl", $DieZahl);
 		SetValue(IPS_GetObjectIDByIdent("DeineZahl", $Parent), 3);
 		SetValue(IPS_GetObjectIDByIdent("DeinTipp", $Parent), 0);
 		SetValue(IPS_GetObjectIDByIdent("ZuegeUebrig", $Parent), 5);
@@ -83,7 +80,7 @@ class Zahlenraten extends IPSModule {
 			case "DeinTipp":
 				SetValue($this->GetIDForIdent($Ident), $Value);
 				$Tipp = GetValue($this->GetIDForIdent("DeinTipp"));
-				$DieZahl = GetValue($this->GetIDForIdent("DieZahl"));
+				$DieZahl = $this->ReadAttributeInteger("GeheimeZahl");
 
 				$Verbleibend = GetValue($this->GetIDForIdent("ZuegeUebrig"));
 
