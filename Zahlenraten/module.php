@@ -7,26 +7,23 @@ class Zahlenraten extends IPSModule {
         
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-		If(!IPS_VariableProfileExists("DieZahl")) {
+		if(!IPS_VariableProfileExists("DieZahl")) {
 			IPS_CreateVariableProfile("DieZahl", 1);
 			IPS_SetVariableProfileValues("DieZahl", 0, 100, 1);
-		} else {
 		}
-		If(!IPS_VariableProfileExists("Zuege")) {
+		if(!IPS_VariableProfileExists("Zuege")) {
 			IPS_CreateVariableProfile("Zuege", 1);
 			IPS_SetVariableProfileValues("Zuege", 0, 5, 1);
-		}else{
 		}
-		If(!IPS_VariableProfileExists("GkG")) {
+		if(!IPS_VariableProfileExists("GkG")) {
 			IPS_CreateVariableProfile("GkG", 1);
 			IPS_SetVariableProfileAssociation("GkG", 0, "kleiner", "Transparent", -1 );
 			IPS_SetVariableProfileAssociation("GkG", 1, "größer", "Transparent", -1 );
 			IPS_SetVariableProfileAssociation("GkG", 2, "gleich", "Transparent", -1 );
 			IPS_SetVariableProfileAssociation("GkG", 3, "", "Transparent", -1 );
 			IPS_SetVariableProfileValues("GkG", 0, 2, 1);
-		}else{
 		}
-		If(!IPS_VariableProfileExists("DeinTipp")) {
+		if(!IPS_VariableProfileExists("DeinTipp")) {
 			IPS_CreateVariableProfile("DeinTipp", 1);
 			IPS_SetVariableProfileAssociation("DeinTipp", 0, "0", "Transparent", -1 );
 			IPS_SetVariableProfileAssociation("DeinTipp", 1, "1", "Transparent", -1 );
@@ -40,7 +37,6 @@ class Zahlenraten extends IPSModule {
 			IPS_SetVariableProfileAssociation("DeinTipp", 9, "9", "Transparent", -1 );
 			IPS_SetVariableProfileAssociation("DeinTipp", 10, "10", "Transparent", -1 );
 			IPS_SetVariableProfileValues("DeinTipp", 0, 10, 0);
-		}else{
 		}
 		
         $this->RegisterVariableInteger("DieZahl", "DieZahl", "DieZahl", 0);
