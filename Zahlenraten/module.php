@@ -8,6 +8,9 @@ class Zahlenraten extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
 		
+		$this->RegisterPropertyInteger("Max", 15);
+		$this->RegisterPropertyInteger("Min", 0);
+		
 		if(!IPS_VariableProfileExists("Zuege")) {
 			IPS_CreateVariableProfile("Zuege", 1);
 			IPS_SetVariableProfileValues("Zuege", 0, 5, 1);
@@ -22,18 +25,7 @@ class Zahlenraten extends IPSModule {
 		}
 		if(!IPS_VariableProfileExists("DeinTipp")) {
 			IPS_CreateVariableProfile("DeinTipp", 1);
-			IPS_SetVariableProfileAssociation("DeinTipp", 0, "0", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 1, "1", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 2, "2", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 3, "3", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 4, "4", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 5, "5", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 6, "6", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 7, "7", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 8, "8", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 9, "9", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("DeinTipp", 10, "10", "Transparent", -1 );
-			IPS_SetVariableProfileValues("DeinTipp", 0, 10, 0);
+			IPS_SetVariableProfileValues("DeinTipp", 0, $this->ReadPropertyInteger("Max"), 1);
 		}
 		
         $this->RegisterAttributeInteger("GeheimeZahl", 0);
@@ -55,6 +47,13 @@ class Zahlenraten extends IPSModule {
     public function ApplyChanges(){
         //Never delete this line!
         parent::ApplyChanges();
+		
+		if ($this->ReadPropertyInteger("Min") > $this->ReadPropertyInteger("Max")) {
+			$this->SetStatus(200);
+			
+		} else {
+			$this->SetStatus(102);
+		}
     }
 	
 	
@@ -62,13 +61,17 @@ class Zahlenraten extends IPSModule {
 	public function Generieren() {
 		
 		$Parent = $this->InstanceID;
-		$DieZahl = mt_rand(0, 10); 
+		if ($this->GetStatus() == 200 ) {
+					echo $this->Translate("The modulse stopped working");
+		} else {
+		$DieZahl = mt_rand($this->ReadPropertyInteger("Min"), $this->ReadPropertyInteger("Max")); 
 		IPS_SetDisabled(IPS_GetObjectIDByIdent("DeinTipp", $Parent), false);
 
 		$this->WriteAttributeInteger("GeheimeZahl", $DieZahl);
 		SetValue(IPS_GetObjectIDByIdent("DeineZahl", $Parent), 3);
 		SetValue(IPS_GetObjectIDByIdent("DeinTipp", $Parent), 0);
 		SetValue(IPS_GetObjectIDByIdent("ZuegeUebrig", $Parent), 5);
+		}
 	
 	}
 	
@@ -78,9 +81,20 @@ class Zahlenraten extends IPSModule {
 		
 		switch ($Ident) {
 			case "DeinTipp":
-				SetValue($this->GetIDForIdent($Ident), $Value);
-				$Tipp = GetValue($this->GetIDForIdent("DeinTipp"));
-				$DieZahl = $this->ReadAttributeInteger("GeheimeZahl");
+				if ($this->GetStatus() == 200 ) {
+					echo $this->Translate("The modulse stopped working");
+				} else {		
+			
+					if ($Value > $this->ReadPropertyInteger("Max") || $Value < $this->ReadPropertyInteger("Min")) {
+						$Min = $this->ReadPropertyInteger("Min");
+						$Max = $this->ReadPropertyInteger("Max");
+						$MiniMax = $this->Translate("The number has to be between %d and %d!");
+						echo sprintf($MiniMax, $Min, $Max);
+					} else {
+						SetValue($this->GetIDForIdent($Ident), $Value);
+						$Tipp = GetValue($this->GetIDForIdent("DeinTipp"));
+						$DieZahl = $this->ReadAttributeInteger("GeheimeZahl");
+						$Verbleibend = GetValue($this->GetIDForIdent("ZuegeUebrig"));
 
 				$Verbleibend = GetValue($this->GetIDForIdent("ZuegeUebrig"));
 
