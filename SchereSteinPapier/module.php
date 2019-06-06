@@ -7,6 +7,14 @@ class SchereSteinPapier extends IPSModule {
         
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
+		If(!IPS_VariableProfileExists("SSP")) {
+			IPS_CreateVariableProfile("SSP", 1);
+			IPS_SetVariableProfileValues("SSP", 0, 0, 1);
+			IPS_SetVariableProfileAssociation("SSP", 0, "Schere", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("SSP", 1, "Stein", "Transparent", -1 );
+			IPS_SetVariableProfileAssociation("SSP", 2, "Papier", "Transparent", -1 );
+		} else {
+		}
         $this->RegisterVariableInteger("WahlS", "Deine Wahl:", "SSP", 0);
         $this->EnableAction("WahlS");
 		
