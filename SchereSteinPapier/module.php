@@ -39,8 +39,8 @@ class SchereSteinPapier extends IPSModule {
 		
 		switch ($Ident) {
 			case "WahlS":
-				SetValue(IPS_GetObjectIDByIdent($Ident, $Parent), $Value);
-				$WahlS = GetValue(IPS_GetObjectIDByIdent("WahlS", $Parent));
+				SetValue($this->GetIDForIdent($Ident), $Value);
+				$WahlS = GetValue($this->GetIDForIdent("WahlS"));
 				$WahlC = mt_rand(0, 2); 
 
 			
