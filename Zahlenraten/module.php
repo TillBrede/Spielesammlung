@@ -10,11 +10,9 @@ class Zahlenraten extends IPSModule {
 		
 		$this->RegisterPropertyInteger("Max", 15);
 		$this->RegisterPropertyInteger("Min", 0);
+		$this->RegisterPropertyInteger("ZuegeEdit", 10);
+				
 		
-		if(!IPS_VariableProfileExists("Zuege")) {
-			IPS_CreateVariableProfile("Zuege", 1);
-			IPS_SetVariableProfileValues("Zuege", 0, 5, 1);
-		}
 		if(!IPS_VariableProfileExists("GkG")) {
 			IPS_CreateVariableProfile("GkG", 1);
 			IPS_SetVariableProfileAssociation("GkG", 0, $this->Translate("lower"), "Transparent", -1 );
@@ -29,7 +27,7 @@ class Zahlenraten extends IPSModule {
 		}
 		
         $this->RegisterAttributeInteger("GeheimeZahl", 0);
-		$this->RegisterVariableInteger("ZuegeUebrig", $this->Translate("Moves left"), "Zuege", 1);
+		$this->RegisterVariableInteger("ZuegeUebrig", $this->Translate("Moves left"), "", 1);
 		$this->RegisterVariableInteger("DeineZahl", $this->Translate("Your number is"), "GkG", 2);
 		$this->RegisterVariableInteger("DeinTipp", $this->Translate("Your guess"), "", 3);
 		$this->RegisterScript("Generieren", $this->Translate("Generate"), "<?php ZR_Generieren(" . $this->InstanceID . ");", 4);
@@ -54,6 +52,8 @@ class Zahlenraten extends IPSModule {
 		} else {
 			$this->SetStatus(102);
 		}
+
+
     }
 	
 	
@@ -70,7 +70,7 @@ class Zahlenraten extends IPSModule {
 		$this->WriteAttributeInteger("GeheimeZahl", $DieZahl);
 		SetValue(IPS_GetObjectIDByIdent("DeineZahl", $Parent), 3);
 		SetValue(IPS_GetObjectIDByIdent("DeinTipp", $Parent), 0);
-		SetValue(IPS_GetObjectIDByIdent("ZuegeUebrig", $Parent), 5);
+		SetValue($this->GetIDForIdent("ZuegeUebrig"), $this->ReadPropertyInteger("ZuegeEdit"));
 		}
 	
 	}
