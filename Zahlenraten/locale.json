@@ -2,10 +2,10 @@
     "translations": {
         "de": {
             "Minimum of Generated Number": "Minimum der generierten Zahl",
-            "Maximum  of Generated Number": "Minimum der generierten Zahl",
+            "Maximum  of Generated Number": "Maximum der generierten Zahl",
             "Instance Active": "Instanz akiv",
             "Minimum has to be Lower than Maximum!": "Der Minimalwert muss geringer als der Maximalwert sein!",
-			"lower": "geringer",
+			"lower": "kleiner",
 			"greater": "größer",
 			"equal": "gleich",
 			"Your number is": "Deine Zahl ist",
@@ -15,7 +15,8 @@
 			"The modulse stopped working": "Das Modul funktioniert nicht mehr",
 			"The number has to be between %d and %d!": "Die Zahl muss zwischen %d und %d liegen! ",
 			"You win!": "Du hast gewonnen!",
-			"You lose!\n\nThe number was: %d": "Du hast verloren!\n\nDie Zahl war: %d"
+			"You lose!\n\nThe number was: %d": "Du hast verloren!\n\nDie Zahl war: %d",
+			"Number of allowed guesses": "Anzahl der erlaubten Versuchen"
            
         }
     }
