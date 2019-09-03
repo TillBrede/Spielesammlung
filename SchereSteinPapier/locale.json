@@ -1,15 +1,17 @@
 {
     "translations": {
         "de": {
-            "Calculation": "Berechnung",
-            "Everything": "Alles",
-            "Sum": "Summe",
-            "Minimum": "Minimum",
-            "Maximum": "Maximum",
-            "Average": "Durchschnitt",
-            "Count": "Anzahl",
-            "Variables": "Variablen",
-            "VariableID": "VariablenID"
+            "Scissors": "Schere",
+            "Rock": "Stein",
+            "Paper": "Papier",
+            "Result": "Ergebnis",
+            "Your Choice": "Deine Wahl",
+            "Computer chose a non-existent variable.": "Computer wählte eine nicht existente Variable.",
+            "Computer chose ": "Computer wählte ",
+            "You loose": "Du verlierst",
+            "You win": "Du gewinnst",
+            "Draw": "Unentschieden"
+
         }
     }
 }

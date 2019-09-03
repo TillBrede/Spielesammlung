@@ -1,119 +1,107 @@
-<?
-class SchereSteinPapier extends IPSModule {
-    
-    public function Create(){
+<?php
+
+declare(strict_types=1);
+class SchereSteinPapier extends IPSModule
+{
+    public function Create()
+    {
         //Never delete this line!
         parent::Create();
-        
+
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-		If(!IPS_VariableProfileExists("SSP")) {
-			IPS_CreateVariableProfile("SSP", 1);
-			IPS_SetVariableProfileValues("SSP", 0, 0, 1);
-			IPS_SetVariableProfileAssociation("SSP", 0, "Schere", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("SSP", 1, "Stein", "Transparent", -1 );
-			IPS_SetVariableProfileAssociation("SSP", 2, "Papier", "Transparent", -1 );
-		} else {
-		}
-        $this->RegisterVariableInteger("WahlS", "Deine Wahl:", "SSP", 0);
-        $this->EnableAction("WahlS");
-		
+        if (!IPS_VariableProfileExists('SSP.Choice')) {
+            IPS_CreateVariableProfile('SSP.Choice', 1);
+            IPS_SetVariableProfileValues('SSP.Choice', 0, 0, 0);
+            IPS_SetVariableProfileAssociation('SSP.Choice', 0, $this->Translate('Scissors'), 'Transparent', -1);
+            IPS_SetVariableProfileAssociation('SSP.Choice', 1, $this->Translate('Rock'), 'Transparent', -1);
+            IPS_SetVariableProfileAssociation('SSP.Choice', 2, $this->Translate('Paper'), 'Transparent', -1);
+        } else {
+        }
+        $this->RegisterVariableString('Result', $this->Translate('Result'), '', 2);
+        $this->RegisterVariableInteger('ChoicePlayer', $this->Translate('Your Choice'), 'SSP.Choice', 0);
+        $this->EnableAction('ChoicePlayer');
+        $this->RegisterVariableInteger('ChoiceCPU', $this->Translate('Computer chose '), 'SSP.Choice', 1);
     }
 
-    public function Destroy(){
+    public function Destroy()
+    {
         //Never delete this line!
         parent::Destroy();
-        
     }
 
-    public function ApplyChanges(){
+    public function ApplyChanges()
+    {
         //Never delete this line!
         parent::ApplyChanges();
     }
-	
-		
-	
-	public function RequestAction($Ident, $Value) {
-		
-		$Parent = $this->InstanceID;
-		
-		switch ($Ident) {
-			case "WahlS":
-				SetValue($this->GetIDForIdent($Ident), $Value);
-				$WahlS = GetValue($this->GetIDForIdent("WahlS"));
-				$WahlC = mt_rand(0, 2); 
 
-			
+    public function RequestAction($Ident, $Value)
+    {
+        switch ($Ident) {
+            case 'ChoicePlayer':
+                SetValue($this->GetIDForIdent($Ident), $Value);
+                $choiceP = GetValue($this->GetIDForIdent('ChoicePlayer'));
+                $choiceCPU = mt_rand(0, 2);
 
-				switch($WahlS) {
+                switch ($choiceP) {
 
-				case 0:
-					switch($WahlC){
-					
-					case 0:
-						echo "Unentschieden";
-						break;
-					case 1:
-						echo "Verloren\n" . "Computer wählte " . $this->GetComputerW($WahlC);
-						break;
-					case 2:
-						echo "Gewonnen\n" . "Computer wählte " . $this->GetComputerW($WahlC);
-						break;
-					default:
-						echo "Computer wählte eine nicht existente Variable";
-					}
-					break;
-				case 1:
-					switch($WahlC){
-					
-					case 0:
-						echo "Gewonnen\n" . "Computer wählte " . $this->GetComputerW($WahlC);
-						break;
-					case 1:
-						echo "Unentschieden";
-						break;
-					case 2:
-						echo "Verloren\n" . "Computer wählte " . $this->GetComputerW($WahlC);
-						break;
-					default:
-						echo "Computer wählte eine nicht existente Variable";
-					}
-					break;
-				case 2:
-					switch($WahlC){
-					
-					case 0:
-						echo "Verloren\n" . "Computer wählte " . $this->GetComputerW($WahlC);
-						break;
-					case 1:
-						echo "Gewonnen\n" . "Computer wählte " . $this->GetComputerW($WahlC);
-						break;
-					case 2:
-						echo "Unentschieden";
-						break;
-					default:
-						echo "Computer wählte eine nicht existente Variable";
-						break;
-					}
-				break;
-				}   
-		} 			
-	}	
-	
-	private function GetComputerW($Wahl) {
-		switch($Wahl){
-			case 0:
-				$Gegenstand = "Schere";
-				break;
-			case 1:
-				$Gegenstand = "Stein";
-				break;
-			case 2:
-				$Gegenstand = "Papier";
-				break;
-		}
-		return $Gegenstand;
-	}  
+                case 0:
+                    switch ($choiceCPU) {
 
+                    case 0:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                        break;
+                    case 1:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                        break;
+                    case 2:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                        break;
+                    default:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
+                    }
+                    break;
+                case 1:
+                    switch ($choiceCPU) {
+
+                    case 0:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                        break;
+                    case 1:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                        break;
+                    case 2:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                        break;
+                    default:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
+                    }
+                    break;
+                case 2:
+                    switch ($choiceCPU) {
+
+                    case 0:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                        break;
+                    case 1:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                        break;
+                    case 2:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                        break;
+                    default:
+                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
+                        break;
+                    }
+                break;
+            }
+        }
+    }
 }
-?>
