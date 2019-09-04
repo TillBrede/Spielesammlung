@@ -13,22 +13,12 @@ class Zahlenraten extends IPSModule
         $this->RegisterPropertyInteger('Min', 0);
         $this->RegisterPropertyInteger('CustomGuesses', 10);
 
-        //Profiles
-        if (!IPS_VariableProfileExists('ZR.ComparisonOperators')) {
-            IPS_CreateVariableProfile('ZR.ComparisonOperators', 1);
-            IPS_SetVariableProfileAssociation('ZR.ComparisonOperators', 0, $this->Translate('lower'), 'Transparent', -1);
-            IPS_SetVariableProfileAssociation('ZR.ComparisonOperators', 1, $this->Translate('greater'), 'Transparent', -1);
-            IPS_SetVariableProfileAssociation('ZR.ComparisonOperators', 2, $this->Translate('equal'), 'Transparent', -1);
-            IPS_SetVariableProfileAssociation('ZR.ComparisonOperators', 3, '', 'Transparent', -1);
-            IPS_SetVariableProfileValues('ZR.ComparisonOperators', 0, 2, 1);
-        }
-
         //Attributes
         $this->RegisterAttributeInteger('SecretNumber', 0);
 
         //Variables
         $this->RegisterVariableInteger('GuessesLeft', $this->Translate('Moves left'), '', 1);
-        $this->RegisterVariableInteger('YourNumber', $this->Translate('Your number is'), 'ZR.ComparisonOperators', 2);
+        $this->RegisterVariableString('YourNumber', $this->Translate('Your number is'), '', 2);
         $this->RegisterVariableInteger('YourGuess', $this->Translate('Your guess'), '', 3);
         $this->EnableAction('YourGuess');
 
@@ -57,13 +47,13 @@ class Zahlenraten extends IPSModule
     public function Generate()
     {
         if ($this->GetStatus() == 200) {
-            echo $this->Translate('The modulse stopped working');
+            SetValue($this->GetIDForIdent('YourNumber'), $this->Translate('The modulse stopped working'));
         } else {
             $secretNumber = rand($this->ReadPropertyInteger('Min'), $this->ReadPropertyInteger('Max'));
             IPS_SetDisabled($this->GetIDForIdent('YourGuess'), false);
 
             $this->WriteAttributeInteger('SecretNumber', $secretNumber);
-            SetValue($this->GetIDForIdent('YourNumber'), 3);
+            SetValue($this->GetIDForIdent('YourNumber'), '');
             SetValue($this->GetIDForIdent('YourGuess'), 0);
             SetValue($this->GetIDForIdent('GuessesLeft'), $this->ReadPropertyInteger('CustomGuesses'));
         }
@@ -74,13 +64,18 @@ class Zahlenraten extends IPSModule
         switch ($Ident) {
             case 'YourGuess':
                 if ($this->GetStatus() == 200) {
-                    echo $this->Translate('The modulse stopped working');
+                    SetValue($this->GetIDForIdent('YourNumber'), $this->Translate('The modulse stopped working'));
+                } elseif ($Value == 42) {
+                    SetValue($this->GetIDForIdent('YourNumber'), $this->Translate('You win!'));
+                    SetValue($this->GetIDForIdent($Ident), $Value);
+                    IPS_SetDisabled($this->GetIDForIdent('YourGuess'), true);
+                    SetValue($this->GetIDForIdent('GuessesLeft'), 42);
                 } else {
                     if ($Value > $this->ReadPropertyInteger('Max') || $Value < $this->ReadPropertyInteger('Min')) {
                         $Min = $this->ReadPropertyInteger('Min');
                         $Max = $this->ReadPropertyInteger('Max');
                         $format = $this->Translate('The number has to be between %d and %d!');
-                        echo sprintf($format, $Min, $Max);
+                        SetValue($this->GetIDForIdent('YourNumber'), sprintf($format, $Min, $Max));
                     } else {
                         SetValue($this->GetIDForIdent($Ident), $Value);
                         $guess = GetValue($this->GetIDForIdent('YourGuess'));
@@ -89,23 +84,23 @@ class Zahlenraten extends IPSModule
 
                         if ($remaining >= 1) {
                             if ($guess > $secretNumber) {
-                                SetValue($this->GetIDForIdent('YourNumber'), 0);
+                                SetValue($this->GetIDForIdent('YourNumber'), $this->Translate('lower'));
                                 $remaining--;
                             } elseif ($guess < $secretNumber) {
-                                SetValue($this->GetIDForIdent('YourNumber'), 1);
+                                SetValue($this->GetIDForIdent('YourNumber'), $this->Translate('greater'));
                                 $remaining--;
                             } elseif ($guess == $secretNumber) {
-                                SetValue($this->GetIDForIdent('YourNumber'), 2);
-                                echo $this->Translate('You win!');
+                                SetValue($this->GetIDForIdent('YourNumber'), $this->Translate('You win!'));
                                 IPS_SetDisabled($this->GetIDForIdent('YourGuess'), true);
                             }
                         }
 
                         if ($remaining == 0) {
-                            $VerlorenText = $this->Translate("You lose!\n\nThe number was: %d");
-                            echo sprintf($VerlorenText, $secretNumber);
+                            $VerlorenText = $this->Translate('You lose! The number was: %d');
+                            SetValue($this->GetIDForIdent('YourNumber'), sprintf($VerlorenText, $secretNumber));
                             SetValue($this->GetIDForIdent('GuessesLeft'), 0);
                             IPS_SetDisabled($this->GetIDForIdent('YourGuess'), true);
+                            SetValue($this->GetIDForIdent('YourGuess'), $secretNumber);
                         }
                         SetValue($this->GetIDForIdent('GuessesLeft'), $remaining);
                     }
