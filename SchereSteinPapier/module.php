@@ -51,6 +51,7 @@ class SchereSteinPapier extends IPSModule
 
                     case 0:
                         SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
                         break;
                     case 1:
                         SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
@@ -73,6 +74,7 @@ class SchereSteinPapier extends IPSModule
                         break;
                     case 1:
                         SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
                         break;
                     case 2:
                         SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
@@ -95,6 +97,7 @@ class SchereSteinPapier extends IPSModule
                         break;
                     case 2:
                         SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
                         break;
                     default:
                         SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));

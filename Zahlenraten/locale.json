@@ -16,7 +16,7 @@
 			"The number has to be between %d and %d!": "Die Zahl muss zwischen %d und %d liegen! ",
 			"You win!": "Du hast gewonnen!",
 			"You lose!\n\nThe number was: %d": "Du hast verloren!\n\nDie Zahl war: %d",
-			"Number of allowed guesses": "Anzahl der erlaubten Versuchen"
+			"Number of allowed guesses": "Anzahl der erlaubten Versuche"
            
         }
     }

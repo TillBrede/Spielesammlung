@@ -3,7 +3,7 @@
     [
         {  "type": "NumberSpinner", "name": "Min", "caption": "Minimum of Generated Number" },
 		{  "type": "NumberSpinner", "name": "Max", "caption": "Maximum  of Generated Number" },
-		{  "type": "NumberSpinner", "name": "ZuegeEdit", "caption": "Number of allowed guesses" }
+		{  "type": "NumberSpinner", "name": "CustomGuesses", "caption": "Number of allowed guesses" }
 		
     ],
 	"status":
