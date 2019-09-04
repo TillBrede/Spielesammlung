@@ -33,8 +33,8 @@ __Konfigurationsseite__:
 
 Name                          | Typ     | Beschreibung
 ----------------------------- | ------- | -------------------------------------
-Minimum der generierten Zahl  | Integer | Das Minimum der zahl die generiert wird.
-Maximum der generierten Zahl  | Integer | Das Maximum der zahl die generiert wird.
+Minimum der generierten Zahl  | Integer | Das Minimum der Zahl die generiert wird.
+Maximum der generierten Zahl  | Integer | Das Maximum der Zahl die generiert wird.
 Anzahl der erlaubten Versuche | Integer | Die Anzahl der Versuche, die der Spieler zum Erraten der Zahl hat. 
 
 ### 5. Statusvariablen und Profile
