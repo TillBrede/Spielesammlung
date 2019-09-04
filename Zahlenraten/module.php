@@ -17,7 +17,7 @@ class Zahlenraten extends IPSModule
         $this->RegisterAttributeInteger('SecretNumber', 0);
 
         //Variables
-        $this->RegisterVariableInteger('GuessesLeft', $this->Translate('Moves left'), '', 1);
+        $this->RegisterVariableInteger('GuessesLeft', $this->Translate('Guesses left'), '', 1);
         $this->RegisterVariableString('YourNumber', $this->Translate('Your number is'), '', 2);
         $this->RegisterVariableInteger('YourGuess', $this->Translate('Your guess'), '', 3);
         $this->EnableAction('YourGuess');
@@ -100,7 +100,6 @@ class Zahlenraten extends IPSModule
                             SetValue($this->GetIDForIdent('YourNumber'), sprintf($VerlorenText, $secretNumber));
                             SetValue($this->GetIDForIdent('GuessesLeft'), 0);
                             IPS_SetDisabled($this->GetIDForIdent('YourGuess'), true);
-                            SetValue($this->GetIDForIdent('YourGuess'), $secretNumber);
                         }
                         SetValue($this->GetIDForIdent('GuessesLeft'), $remaining);
                     }

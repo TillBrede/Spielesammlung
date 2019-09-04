@@ -7,15 +7,14 @@
             "Minimum has to be Lower than Maximum!": "Der Minimalwert muss geringer als der Maximalwert sein!",
 			"lower": "kleiner",
 			"greater": "größer",
-			"equal": "gleich",
 			"Your number is": "Deine Zahl ist",
 			"Your guess": "Dein Tipp",
-			"Moves left": "Züge übrig",
+			"Guesses left": "Versuche übrig",
 			"Generate": "Generieren",
 			"The modulse stopped working": "Das Modul funktioniert nicht mehr",
 			"The number has to be between %d and %d!": "Die Zahl muss zwischen %d und %d liegen! ",
 			"You win!": "Du hast gewonnen!",
-			"You lose!\n\nThe number was: %d": "Du hast verloren!\n\nDie Zahl war: %d",
+			"You lose! The number was: %d": "Du hast verloren! Die Zahl war: %d",
 			"Number of allowed guesses": "Anzahl der erlaubten Versuche"
            
         }
