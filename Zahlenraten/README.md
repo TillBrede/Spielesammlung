@@ -59,7 +59,7 @@ Hier wird gespielt.
 
 ### 7. PHP-Befehlsreferenz
 
-`boolean ZR_Generate(Integer $InstanzID);`
+`boolean ZR_Generate(integer $InstanzID);`
 Generiert eine neue Zahl, die erraten werden kann.  
 Beispiel:  
 `ZR_Generate(12345);`
