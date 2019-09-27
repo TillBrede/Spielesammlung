@@ -1,7 +1,7 @@
 # Zahlenraten
 Ein kleines Spiel, bei dem eine zufällige Zahl erraten werden muss.
 
-### Inhaltverzeichnis
+### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
 2. [Voraussetzungen](#2-voraussetzungen)
@@ -27,7 +27,7 @@ Ein kleines Spiel, bei dem eine zufällige Zahl erraten werden muss.
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Zahlenraten'-Modul unter dem Hersteller '(Sonstige)' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Zahlenraten'-Modul unter dem Hersteller '(Gerät)' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -51,7 +51,7 @@ Dein Tipp      | Integer | Das Eingabefeld für den Tipp des Spielers.
 
 ##### Profile:
 
- Es werden keine neuen Profile erstellt.
+Es werden keine neuen Profile erstellt.
 
 ### 6. WebFront
 
@@ -59,7 +59,7 @@ Hier wird gespielt.
 
 ### 7. PHP-Befehlsreferenz
 
-`boolean ZR_Generate(nteger $InstanzID);`
+`boolean ZR_Generate(Integer $InstanzID);`
 Generiert eine neue Zahl, die erraten werden kann.  
 Beispiel:  
 `ZR_Generate(12345);`

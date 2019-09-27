@@ -1,7 +1,7 @@
 # SchereSteinPapier
 Eine Möglichkeit Schere Stein Papier im WebFront zu spielen.
 
-### Inhaltverzeichnis
+### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
 2. [Voraussetzungen](#2-voraussetzungen)
@@ -27,7 +27,7 @@ Eine Möglichkeit Schere Stein Papier im WebFront zu spielen.
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'SchereSteinPapier'-Modul unter dem Hersteller '(Sonstige)' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'SchereSteinPapier'-Modul unter dem Hersteller '(Gerät)' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -57,5 +57,5 @@ Hier wird gespielt.
 
 ### 7. PHP-Befehlsreferenz
 
-Diese Modul hat keinen eigenen Befehle.
+Diese Modul hat keine eigenen Befehle.
 
