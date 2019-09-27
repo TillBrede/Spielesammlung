@@ -21,8 +21,8 @@ Eine Möglichkeit Schere Stein Papier im WebFront zu spielen.
 
 ### 3. Software-Installation
 
-* Über den Modul Store das Modul Spielesammlung installieren.
-* Alternativ über das Modul Control folgende URL hinzufügen:
+* Über den Module Store das Modul Spielesammlung installieren.
+* Alternativ über das Module Control folgende URL hinzufügen:
 `https://github.com/TillBrede/Spielesammlung`  
 
 ### 4. Einrichten der Instanzen in IP-Symcon
