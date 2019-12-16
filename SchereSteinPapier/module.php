@@ -16,7 +16,6 @@ class SchereSteinPapier extends IPSModule
             IPS_SetVariableProfileAssociation('SSP.Choice', 0, $this->Translate('Scissors'), 'Transparent', -1);
             IPS_SetVariableProfileAssociation('SSP.Choice', 1, $this->Translate('Rock'), 'Transparent', -1);
             IPS_SetVariableProfileAssociation('SSP.Choice', 2, $this->Translate('Paper'), 'Transparent', -1);
-        } else {
         }
         $this->RegisterVariableString('Result', $this->Translate('Result'), '', 2);
         $this->RegisterVariableInteger('ChoicePlayer', $this->Translate('Your Choice'), 'SSP.Choice', 0);
