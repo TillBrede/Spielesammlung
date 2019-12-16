@@ -27,7 +27,7 @@ Eine Möglichkeit Schere Stein Papier im WebFront zu spielen.
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'SchereSteinPapier'-Modul unter dem Hersteller '(Sonstige)' aufgeführt.  
+- Unter "Instanz hinzufügen" kann das 'SchereSteinPapier'-Modul mithilfe der Schnellsuche einfach gefunden werden.  
 
 __Konfigurationsseite__:
 
