@@ -9,7 +9,8 @@
 	"status":
 	[
 		{ "code": 102, "icon": "active", "caption": "Instance Active" },
-		{ "code": 200, "icon": "error", "caption": "Minimum has to be Lower than Maximum!" }
+		{ "code": 200, "icon": "error", "caption": "Minimum has to be Lower than Maximum!" },
+		{ "code": 201, "icon": "error", "caption": "The number of guesses has to be higher than 0!" }
 	]
     
 }
