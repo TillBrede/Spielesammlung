@@ -5,9 +5,11 @@
     "vendor": "",
     "aliases": 
     [
+        "Schere Stein Papier"
     ],
     "parentRequirements": [],
     "childRequirements": [],
     "implemented": [],
-    "prefix": "SSP"
+    "prefix": "SSP",
+    "url": "https://github.com/TillBrede/Spielesammlung/tree/master/SchereSteinPapier"
 }
