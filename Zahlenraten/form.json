@@ -1,16 +1,36 @@
 {
-    "elements":
-    [
-        {  "type": "NumberSpinner", "name": "Min", "caption": "Minimum of Generated Number" },
-		{  "type": "NumberSpinner", "name": "Max", "caption": "Maximum  of Generated Number" },
-		{  "type": "NumberSpinner", "name": "CustomGuesses", "caption": "Number of allowed guesses" }
-		
+    "elements": [
+        {
+            "type": "NumberSpinner",
+            "name": "Min",
+            "caption": "Minimum of Generated Number"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "Max",
+            "caption": "Maximum  of Generated Number"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "CustomGuesses",
+            "caption": "Number of allowed guesses"
+        }
     ],
-	"status":
-	[
-		{ "code": 102, "icon": "active", "caption": "Instance Active" },
-		{ "code": 200, "icon": "error", "caption": "Minimum has to be Lower than Maximum!" },
-		{ "code": 201, "icon": "error", "caption": "The number of guesses has to be higher than 0!" }
-	]
-    
+    "status": [
+        {
+            "code": 102,
+            "icon": "active",
+            "caption": "Instance Active"
+        },
+        {
+            "code": 200,
+            "icon": "error",
+            "caption": "Minimum has to be Lower than Maximum!"
+        },
+        {
+            "code": 201,
+            "icon": "error",
+            "caption": "The number of guesses has to be higher than 0!"
+        }
+    ]
 }
