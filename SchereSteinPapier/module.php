@@ -45,65 +45,65 @@ class SchereSteinPapier extends IPSModule
 
                 switch ($choiceP) {
 
-                case 0:
-                    switch ($choiceCPU) {
-
                     case 0:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                        switch ($choiceCPU) {
+
+                            case 0:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            case 1:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            case 2:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            default:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
+                        }
                         break;
                     case 1:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
-                        break;
-                    case 2:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
-                        break;
-                    default:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
-                    }
-                    break;
-                case 1:
-                    switch ($choiceCPU) {
+                        switch ($choiceCPU) {
 
-                    case 0:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
-                        break;
-                    case 1:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                            case 0:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            case 1:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            case 2:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            default:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
+                        }
                         break;
                     case 2:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
-                        break;
-                    default:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
-                    }
-                    break;
-                case 2:
-                    switch ($choiceCPU) {
+                        switch ($choiceCPU) {
 
-                    case 0:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                            case 0:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('You loose'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            case 1:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            case 2:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
+                                SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
+                                break;
+                            default:
+                                SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
+                                break;
+                        }
                         break;
-                    case 1:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('You win'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
-                        break;
-                    case 2:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Draw'));
-                        SetValue($this->GetIDForIdent('ChoiceCPU'), $choiceCPU);
-                        break;
-                    default:
-                        SetValue($this->GetIDForIdent('Result'), $this->Translate('Computer chose a non-existent variable.'));
-                        break;
-                    }
-                break;
-            }
+                }
         }
     }
 }
