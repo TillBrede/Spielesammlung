@@ -8,12 +8,12 @@ class SpielesammlungValidationTest extends TestCaseSymconValidation
     {
         $this->validateLibrary(__DIR__ . '/..');
     }
-    public function testValidateSchereSteinPapierModule(): void
+    public function testValidateScissorsRockPaperModule(): void
     {
-        $this->validateModule(__DIR__ . '/../SchereSteinPapier');
+        $this->validateModule(__DIR__ . '/../ScissorsRockPaper');
     }
-    public function testValidateZahlenratenModule(): void
+    public function testValidateNumberGuessingModule(): void
     {
-        $this->validateModule(__DIR__ . '/../Zahlenraten');
+        $this->validateModule(__DIR__ . '/../NumberGuessing');
     }
 }

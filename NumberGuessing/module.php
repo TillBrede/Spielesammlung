@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-class Zahlenraten extends IPSModule
+class NumberGuessing extends IPSModule
 {
     public function Create()
     {
