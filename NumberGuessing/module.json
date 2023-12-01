@@ -1,6 +1,6 @@
 {
     "id": "{CCFBF053-0FC7-B19A-A507-B63B87454D37}",
-    "name": "Zahlenraten",
+    "name": "NumberGuessing",
     "type": 3,
     "vendor": "",
     "aliases": [],
@@ -8,5 +8,5 @@
     "childRequirements": [],
     "implemented": [],
     "prefix": "ZR",
-    "url": "https://github.com/TillBrede/Spielesammlung/tree/master/Zahlenraten"
+    "url": "https://www.symcon.de/en/service/documentation/module-reference/spielesammlung/number-guessing/"
 }

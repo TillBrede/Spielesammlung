@@ -6,8 +6,8 @@
   </php>
   <source>
     <include>
-      <directory suffix=".php">../SchereSteinPapier</directory>
-      <directory suffix=".php">../Zahlenraten</directory>
+      <directory suffix=".php">../ScissorsRockPaper</directory>
+      <directory suffix=".php">../NumberGuessing</directory>
     </include>
   </source>
 </phpunit>

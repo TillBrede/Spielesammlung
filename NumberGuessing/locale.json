@@ -16,7 +16,9 @@
             "You win!": "Du hast gewonnen!",
             "You lose! The number was: %d": "Du hast verloren! Die Zahl war: %d",
             "Number of allowed guesses": "Anzahl der erlaubten Versuche",
-            "The number of guesses has to be higher than 0!": "Die Anzahl der Versuche muss mehr als 0 sein!"
+            "The number of guesses has to be higher than 0!": "Die Anzahl der Versuche muss mehr als 0 sein!",
+            "https://www.symcon.de/de/service/dokumentation/modulreferenz/spielesammlung/zahlenraten/": "https://www.symcon.de/en/service/documentation/module-reference/spielesammlung/number-guessing/",
+            "NumberGuessing": "Zahlenraten"
         }
     }
 }
