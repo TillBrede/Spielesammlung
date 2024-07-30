@@ -6,7 +6,7 @@
   </php>
   <source>
     <include>
-      <directory suffix=".php">../ScissorsRockPaper</directory>
+      <directory suffix=".php">../RockPaperScissors</directory>
       <directory suffix=".php">../NumberGuessing</directory>
     </include>
   </source>

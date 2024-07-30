@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-class ScissorsRockPaper extends IPSModule
+class RockPaperScissors extends IPSModule
 {
     public function Create()
     {

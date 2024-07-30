@@ -11,9 +11,9 @@
             "You loose": "Du verlierst",
             "You win": "Du gewinnst",
             "Draw": "Unentschieden",
-            "Sissors Rock Paper": "Schere Stein Papier",
-            "https://www.symcon.de/en/service/documentation/module-reference/spielesammlung/scissorsrockpaper/": "https://www.symcon.de/de/service/dokumentation/modulreferenz/spielesammlung/scheresteinpapier/",
-            "ScissorsRockPaper": "SchereSteinPapier"
+            "Rock Paper Scissors": "Schere Stein Papier",
+            "https://www.symcon.de/en/service/documentation/module-reference/game-collection/rock-paper-scissors/": "https://www.symcon.de/de/service/dokumentation/modulreferenz/spielesammlung/schere-stein-papier/",
+            "RockPaperScissors": "SchereSteinPapier"
         }
     }
 }

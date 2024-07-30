@@ -1,14 +1,14 @@
 {
     "id": "{AF26D25A-7370-4914-9873-B9812ED1CC3C}",
-    "name": "ScissorsRockPaper",
+    "name": "RockPaperScissors",
     "type": 3,
     "vendor": "",
     "aliases": [
-        "Sissors Rock Paper"
+        "Rock Paper Scissors"
     ],
     "parentRequirements": [],
     "childRequirements": [],
     "implemented": [],
     "prefix": "SSP",
-    "url": "https://www.symcon.de/de/service/dokumentation/modulreferenz/spielesammlung/scheresteinpapier/"
+    "url": "https://www.symcon.de/en/service/documentation/module-reference/game-collection/rock-paper-scissors/"
 }

@@ -8,9 +8,9 @@ class SpielesammlungValidationTest extends TestCaseSymconValidation
     {
         $this->validateLibrary(__DIR__ . '/..');
     }
-    public function testValidateScissorsRockPaperModule(): void
+    public function testValidateRockPaperScissorsModule(): void
     {
-        $this->validateModule(__DIR__ . '/../ScissorsRockPaper');
+        $this->validateModule(__DIR__ . '/../RockPaperScissors');
     }
     public function testValidateNumberGuessingModule(): void
     {
